@@ -26,6 +26,7 @@ namespace OS
             }
             if (input == "fcfs")
             {
+
                 Console.WriteLine("\nEnter the Number of Processes: ");
                 int num_processes;
                 num_processes = Convert.ToInt32(Console.ReadLine());
@@ -39,7 +40,17 @@ namespace OS
             }
             if (input == "p_np")
             {
-                Console.WriteLine("This will work - 2");
+                Console.WriteLine("\nEnter the Number of Processes: ");
+                int num_processes;
+                num_processes = Convert.ToInt32(Console.ReadLine());
+                int[] processes_burst = new int[num_processes];
+                int[] processes_arrival = new int[num_processes];
+                int[] processes_priority = new int[num_processes];
+                process.getProcessDetails(num_processes, processes_burst, processes_arrival, processes_priority);
+                var pnp_t = new Pnp_alg(processes_arrival, processes_burst, processes_priority, num_processes);
+                pnp_t.computePriority_N();
+                pnp_t.Display();
+                pnp_t.clearData();
             }
             if (input == "p_p")
             {
