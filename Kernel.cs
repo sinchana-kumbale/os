@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Sys = Cosmos.System;
-
 namespace OS
 {
     public class Kernel : Sys.Kernel
     {
-
         protected override void BeforeRun()
         {
             Console.WriteLine("Cosmos booted successfully. Type a line of text to get it echoed back.");
@@ -28,27 +26,16 @@ namespace OS
             }
             if (input == "fcfs")
             {
-                //Console.WriteLine("This will work - 1");
                 Console.WriteLine("\nEnter the Number of Processes: ");
                 int num_processes;
                 num_processes = Convert.ToInt32(Console.ReadLine());
-                int[] processes = new int[num_processes];
-                int i;
-                Console.Write("-----------------------------------------\n");
-
-                Console.Write("Input {0} processes :\n",processes);
-                for (i = 0; i < 10; i++)
-                {
-                    Console.Write("element - {0} : ", i);
-                    arr[i] = Convert.ToInt32(Console.ReadLine());
-                }
-
-                Console.Write("\nElements in array are: ");
-                for (i = 0; i < 10; i++)
-                {
-                    Console.Write("{0}  ", arr[i]);
-                }
-                Console.Write("\n");
+                int[] processes_burst = new int[num_processes];
+                int[] processes_arrival = new int[num_processes];
+                int[] processes_priority = new int[num_processes];
+                process.getProcessDetails(num_processes, processes_burst, processes_arrival, processes_priority);
+                var fcfs_t = new FCFS_alg(processes_arrival, processes_burst, processes_priority, num_processes);
+                fcfs_t.computeFCFS();
+                fcfs_t.Display();
             }
             if (input == "p_np")
             {

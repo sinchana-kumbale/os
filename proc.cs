@@ -79,5 +79,22 @@ namespace OS
             }
 
         }
+        public static void getProcessDetails(int num_processes, int[] processes_burst, int[] processes_arrival, int[] processes_priority)
+        {
+            int i;
+            Console.Write("-----------------------------------------\n");
+
+            Console.Write("Input {0} processes :\n", num_processes);
+            for (i = 0; i < num_processes; i++)
+            {
+                Console.Write("process - {0} : ", i);
+                Console.Write("Burst Time of process {0}: ", i);
+                processes_burst[i] = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Arrival Time of process {0}: ", i);
+                processes_arrival[i] = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Priority of process {0}: ", i);
+                processes_priority[i] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
     }
 }

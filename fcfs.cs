@@ -30,12 +30,12 @@ namespace OS
             arrivalTime = a;
             cpu_brustTime = b;
             priority = c;
-            waitingTime = new int[2000];
-            turnaroundTime = new int[2000];
-            start = new int[2000];
-            end = new int[2000];
-            proc = new int[2000];
-            for (int i = 0; i < 2000; i++)
+            waitingTime = new int[10];
+            turnaroundTime = new int[10];
+            start = new int[10];
+            end = new int[10];
+            proc = new int[10];
+            for (int i = 0; i < 10; i++)
             {
                 waitingTime[i] = 0; turnaroundTime[i] = 0; start[i] = 0; end[i] = 0; proc[i] = -1;
             }
@@ -44,7 +44,7 @@ namespace OS
         public void clearData()
         {
             arrivalTime = new int[0]; cpu_brustTime = new int[0]; priority = new int[0];
-            for (int i = 0; i < 2000; i++)
+            for (int i = 0; i < 10; i++)
             {
                 waitingTime[i] = 0; turnaroundTime[i] = 0; start[i] = 0; end[i] = 0; proc[i] = -1;
             }
@@ -52,10 +52,11 @@ namespace OS
         public void computeFCFS()
         {
             List<process> p = new List<process>(num_process);
-
             for (int i = 0; i < num_process; i++)
             {
-                p.Add(new process(i, arrivalTime[i], cpu_brustTime[i]));
+
+                process a = new process(i, arrivalTime[i], cpu_brustTime[i]);
+                p.Add(a);
             }
 
             process.sort1(p);
@@ -112,7 +113,7 @@ namespace OS
         }
         public void Display()
         {
-            for (int i = 0; i < num_process; i++)
+            for (int i = 0; i < lastValid; i++)
             {
                 Console.WriteLine(proc[i]);
             }
