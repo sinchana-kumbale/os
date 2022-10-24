@@ -17,8 +17,39 @@ namespace OS
         {
             Console.Write("Input: ");
             var input = Console.ReadLine();
-            Console.Write("Text typed: ");
-            Console.WriteLine(input);
+            if (input == "?")
+            {
+                Console.WriteLine("fcfs: For the scheduling implementation of First Come first serve");
+                Console.WriteLine("p_np: For the scheduling implementation of First Come first serve");
+                Console.WriteLine("p_p: For the scheduling implementation of First Come first serve");
+                Console.WriteLine("rr: For the scheduling implementation of First Come first serve");
+                Console.WriteLine("sjf_np: For the scheduling implementation of First Come first serve");
+                Console.WriteLine("sjf_p: For the scheduling implementation of First Come first serve");
+            }
+            if (input == "fcfs")
+            {
+                Console.WriteLine("This will work - 1");
+            }
+            if (input == "p_np")
+            {
+                Console.WriteLine("This will work - 2");
+            }
+            if (input == "p_p")
+            {
+                Console.WriteLine("This will work - 3");
+            }
+            if (input == "rr")
+            {
+                Console.WriteLine("This will work - 4");
+            }
+            if (input == "sjf_np")
+            {
+                Console.WriteLine("This will work - 5");
+            }
+            if (input == "sjf_p")
+            {
+                Console.WriteLine("This will work - 6");
+            }
         }
     }
 }
