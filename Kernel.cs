@@ -29,12 +29,14 @@ namespace OS
             if (input == "fcfs")
             {
                 //Console.WriteLine("This will work - 1");
-                int[] arr = new int[10];
+                Console.WriteLine("\nEnter the Number of Processes: ");
+                int num_processes;
+                num_processes = Convert.ToInt32(Console.ReadLine());
+                int[] processes = new int[num_processes];
                 int i;
-                Console.Write("\n\nRead and Print elements of an array:\n");
                 Console.Write("-----------------------------------------\n");
 
-                Console.Write("Input 10 elements in the array :\n");
+                Console.Write("Input {0} processes :\n",processes);
                 for (i = 0; i < 10; i++)
                 {
                     Console.Write("element - {0} : ", i);
