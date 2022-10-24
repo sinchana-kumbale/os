@@ -1,0 +1,12 @@
+C:\Users\sinch\Desktop\OS\bin\Debug\net5.0\OS.deps.json
+C:\Users\sinch\Desktop\OS\bin\Debug\net5.0\OS.dll
+C:\Users\sinch\Desktop\OS\bin\Debug\net5.0\ref\OS.dll
+C:\Users\sinch\Desktop\OS\bin\Debug\net5.0\OS.pdb
+C:\Users\sinch\Desktop\OS\obj\Debug\net5.0\OS.csproj.AssemblyReference.cache
+C:\Users\sinch\Desktop\OS\obj\Debug\net5.0\OS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sinch\Desktop\OS\obj\Debug\net5.0\OS.AssemblyInfoInputs.cache
+C:\Users\sinch\Desktop\OS\obj\Debug\net5.0\OS.AssemblyInfo.cs
+C:\Users\sinch\Desktop\OS\obj\Debug\net5.0\OS.csproj.CoreCompileInputs.cache
+C:\Users\sinch\Desktop\OS\obj\Debug\net5.0\OS.dll
+C:\Users\sinch\Desktop\OS\obj\Debug\net5.0\ref\OS.dll
+C:\Users\sinch\Desktop\OS\obj\Debug\net5.0\OS.pdb
