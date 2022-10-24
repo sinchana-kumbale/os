@@ -54,11 +54,34 @@ namespace OS
             }
             if (input == "p_p")
             {
-                Console.WriteLine("This will work - 3");
+                Console.WriteLine("\nEnter the Number of Processes: ");
+                int num_processes;
+                num_processes = Convert.ToInt32(Console.ReadLine());
+                int[] processes_burst = new int[num_processes];
+                int[] processes_arrival = new int[num_processes];
+                int[] processes_priority = new int[num_processes];
+                process.getProcessDetails(num_processes, processes_burst, processes_arrival, processes_priority);
+                var pp_t = new Pp_alg(processes_arrival, processes_burst, processes_priority, num_processes);
+                pp_t.computePriority_P();
+                pp_t.Display();
+                pp_t.clearData();
             }
             if (input == "rr")
             {
-                Console.WriteLine("This will work - 4");
+                Console.WriteLine("\nEnter the Number of Processes: ");
+                int num_processes;
+                num_processes = Convert.ToInt32(Console.ReadLine());
+                int[] processes_burst = new int[num_processes];
+                int[] processes_arrival = new int[num_processes];
+                int[] processes_priority = new int[num_processes];
+                process.getProcessDetails(num_processes, processes_burst, processes_arrival, processes_priority);
+                int quantum;
+                Console.WriteLine("\nEnter the time quantum for Round Robin Scheduling: ");
+                quantum = Convert.ToInt32(Console.ReadLine());
+                var rr_t = new RR_alg(processes_arrival, processes_burst, processes_priority, quantum, num_processes);
+                rr_t.computeRR();
+                rr_t.Display();
+                rr_t.clearData();
             }
             if (input == "sjf_np")
             {
