@@ -15,16 +15,16 @@ namespace OS
             var input = Console.ReadLine();
             if (input == "help")
             {
-                Console.WriteLine("about: For the scheduling implementation of First Come first serve");
-                Console.WriteLine("shutdown: For the scheduling implementation of First Come first serve");
-                Console.WriteLine("restart: For the scheduling implementation of First Come first serve");
-                Console.WriteLine("echo: For the scheduling implementation of First Come first serve");
+                Console.WriteLine("about: Know OS Version");
+                Console.WriteLine("shutdown: To Shutdown");
+                Console.WriteLine("restart: To Restart");
+                Console.WriteLine("echo: Print the input as is");
                 Console.WriteLine("fcfs: For the scheduling implementation of First Come first serve");
-                Console.WriteLine("p_np: For the scheduling implementation of Priority Non Premptive");
-                Console.WriteLine("p_p: For the scheduling implementation of Priority Premptive");
+                Console.WriteLine("p_np: For the scheduling implementation of Priority Non Preemptive");
+                Console.WriteLine("p_p: For the scheduling implementation of Priority Preemptive");
                 Console.WriteLine("rr: For the scheduling implementation of Round Robin");
-                Console.WriteLine("sjf_np: For the scheduling implementation of Shortest Job First Non Premptive");
-                Console.WriteLine("sjf_p: For the scheduling implementation of Shortest Job First Premptive");
+                Console.WriteLine("sjf_np: For the scheduling implementation of Shortest Job First Non Preemptive");
+                Console.WriteLine("sjf_p: For the scheduling implementation of Shortest Job First Preemptive");
             }
             if (input == "fcfs")
             {
@@ -35,9 +35,9 @@ namespace OS
                 int[] processes_arrival = new int[num_processes];
                 int[] processes_priority = new int[num_processes];
                 process.getProcessDetails(num_processes, processes_burst, processes_arrival, processes_priority);
-                var fcfs_t = new FCFS_alg(processes_arrival, processes_burst, processes_priority, num_processes);
-                fcfs_t.computeFCFS();
-                fcfs_t.Display();
+                var fcfs = new FCFS_alg(processes_arrival, processes_burst, processes_priority, num_processes);
+                fcfs.computeFCFS();
+                fcfs.Display();
             }
             if (input == "p_np")
             {
@@ -48,10 +48,10 @@ namespace OS
                 int[] processes_arrival = new int[num_processes];
                 int[] processes_priority = new int[num_processes];
                 process.getProcessDetails(num_processes, processes_burst, processes_arrival, processes_priority);
-                var pnp_t = new Pnp_alg(processes_arrival, processes_burst, processes_priority, num_processes);
-                pnp_t.computePriority_N();
-                pnp_t.Display();
-                pnp_t.clearData();
+                var pnp = new Pnp_alg(processes_arrival, processes_burst, processes_priority, num_processes);
+                pnp.computePriority_N();
+                pnp.Display();
+                pnp.clearData();
             }
             if (input == "p_p")
             {
@@ -117,12 +117,12 @@ namespace OS
                 Console.WriteLine("SAS OS v1.0");
             }
 
-            if (input == "shutdown") 
+            if (input == "shutdown")
             {
                 Cosmos.System.Power.Shutdown();
             }
 
-            if (input == "restart") 
+            if (input == "restart")
             {
                 Cosmos.System.Power.Reboot();
             }

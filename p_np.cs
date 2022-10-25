@@ -10,7 +10,7 @@ namespace OS
     {
         //inputs
         public int num_process;
-        public int[] cpu_brustTime;
+        public int[] cpu_burstTime;
         public int[] arrivalTime;
         public int[] priority;
 
@@ -29,7 +29,7 @@ namespace OS
         {
             num_process = n;
             arrivalTime = a;
-            cpu_brustTime = b;
+            cpu_burstTime = b;
             priority = c;
             waitingTime = new int[2000];
             turnaroundTime = new int[2000];
@@ -44,7 +44,7 @@ namespace OS
         }
         public void clearData()
         {
-            arrivalTime = new int[0]; cpu_brustTime = new int[0]; priority = new int[0];
+            arrivalTime = new int[0]; cpu_burstTime = new int[0]; priority = new int[0];
             for (int i = 0; i < 2000; i++)
             {
                 waitingTime[i] = 0; turnaroundTime[i] = 0; start[i] = 0; end[i] = 0; proc[i] = -1;
@@ -57,7 +57,7 @@ namespace OS
 
             for (int i = 0; i < num_process; i++)
             {
-                p.Add(new process(i, arrivalTime[i], cpu_brustTime[i], priority[i]));
+                p.Add(new process(i, arrivalTime[i], cpu_burstTime[i], priority[i]));
             }
             process.sort1(p);
             int cnt = 0;
@@ -129,10 +129,26 @@ namespace OS
         }
         public void Display()
         {
+            Console.Write("-------------------------------------------------------\n");
             for (int i = 0; i < lastValid; i++)
             {
-                Console.WriteLine(proc[i]);
+                Console.Write(start[i]);
+                Console.Write("--");
+                Console.Write(end[i]);
+                Console.Write("  Process : ");
+                Console.Write(proc[i]);
+                Console.Write("  Waiting Time : ");
+                Console.Write(waitingTime[i]);
+                Console.Write("  Turnaround Time : ");
+                Console.Write(turnaroundTime[i]);
+                Console.Write("\n");
             }
+            Console.Write("-------------------------------------------------------\n");
+            Console.Write("Average Waiting Time : ");
+            Console.WriteLine(avg_waiting);
+            Console.Write("Average Turnaround Time : ");
+            Console.WriteLine(avg_turnaround);
+            Console.Write("-------------------------------------------------------\n");
         }
 
     }
