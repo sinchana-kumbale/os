@@ -18,11 +18,11 @@ namespace OS
             if (input == "?")
             {
                 Console.WriteLine("fcfs: For the scheduling implementation of First Come first serve");
-                Console.WriteLine("p_np: For the scheduling implementation of First Come first serve");
-                Console.WriteLine("p_p: For the scheduling implementation of First Come first serve");
-                Console.WriteLine("rr: For the scheduling implementation of First Come first serve");
-                Console.WriteLine("sjf_np: For the scheduling implementation of First Come first serve");
-                Console.WriteLine("sjf_p: For the scheduling implementation of First Come first serve");
+                Console.WriteLine("p_np: For the scheduling implementation of Priority Non Premptive");
+                Console.WriteLine("p_p: For the scheduling implementation of Priority Premptive");
+                Console.WriteLine("rr: For the scheduling implementation of Round Robin");
+                Console.WriteLine("sjf_np: For the scheduling implementation of Shortest Job First Non Premptive");
+                Console.WriteLine("sjf_p: For the scheduling implementation of Shortest Job First Premptive");
             }
             if (input == "fcfs")
             {
