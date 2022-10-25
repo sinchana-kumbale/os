@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Sys = Cosmos.System;
 namespace OS
 {
@@ -8,15 +6,19 @@ namespace OS
     {
         protected override void BeforeRun()
         {
-            Console.WriteLine("Cosmos booted successfully. Type a line of text to get it echoed back.");
+            Console.WriteLine("Welcome to SASos!");
         }
 
         protected override void Run()
         {
             Console.Write("Input: ");
             var input = Console.ReadLine();
-            if (input == "?")
+            if (input == "help")
             {
+                Console.WriteLine("about: For the scheduling implementation of First Come first serve");
+                Console.WriteLine("shutdown: For the scheduling implementation of First Come first serve");
+                Console.WriteLine("restart: For the scheduling implementation of First Come first serve");
+                Console.WriteLine("echo: For the scheduling implementation of First Come first serve");
                 Console.WriteLine("fcfs: For the scheduling implementation of First Come first serve");
                 Console.WriteLine("p_np: For the scheduling implementation of Priority Non Premptive");
                 Console.WriteLine("p_p: For the scheduling implementation of Priority Premptive");
@@ -26,7 +28,6 @@ namespace OS
             }
             if (input == "fcfs")
             {
-
                 Console.WriteLine("\nEnter the Number of Processes: ");
                 int num_processes;
                 num_processes = Convert.ToInt32(Console.ReadLine());
@@ -85,11 +86,31 @@ namespace OS
             }
             if (input == "sjf_np")
             {
-                Console.WriteLine("This will work - 5");
+                Console.WriteLine("\nEnter the Number of Processes: ");
+                int num_processes;
+                num_processes = Convert.ToInt32(Console.ReadLine());
+                int[] processes_burst = new int[num_processes];
+                int[] processes_arrival = new int[num_processes];
+                int[] processes_priority = new int[num_processes];
+                process.getProcessDetails(num_processes, processes_burst, processes_arrival, processes_priority);
+                var sjfnp_t = new SJFnp_alg(processes_arrival, processes_burst, processes_priority, num_processes);
+                sjfnp_t.computeSJF_N();
+                sjfnp_t.Display();
+                sjfnp_t.clearData();
             }
             if (input == "sjf_p")
             {
-                Console.WriteLine("This will work - 6");
+                Console.WriteLine("\nEnter the Number of Processes: ");
+                int num_processes;
+                num_processes = Convert.ToInt32(Console.ReadLine());
+                int[] processes_burst = new int[num_processes];
+                int[] processes_arrival = new int[num_processes];
+                int[] processes_priority = new int[num_processes];
+                process.getProcessDetails(num_processes, processes_burst, processes_arrival, processes_priority);
+                var sjfp_t = new SJFp_alg(processes_arrival, processes_burst, processes_priority, num_processes);
+                sjfp_t.computeSJF_P();
+                sjfp_t.Display();
+                sjfp_t.clearData();
             }
         }
     }
