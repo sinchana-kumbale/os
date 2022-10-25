@@ -88,13 +88,32 @@ namespace OS
             for (i = 0; i < num_processes; i++)
             {
                 Console.Write("process - {0} : ", i);
-                Console.Write("Burst Time of process {0}: ", i);
-                processes_burst[i] = Convert.ToInt32(Console.ReadLine());
                 Console.Write("Arrival Time of process {0}: ", i);
                 processes_arrival[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            for (i = 0; i < num_processes; i++)
+            {
+                Console.Write("process - {0} : ", i);
+                Console.Write("Burst Time of process {0}: ", i);
+                processes_burst[i] = Convert.ToInt32(Console.ReadLine());             
+            }        
+
+            for (i = 0; i < num_processes; i++)
+            {
+                Console.Write("process - {0} : ", i);
                 Console.Write("Priority of process {0}: ", i);
                 processes_priority[i] = Convert.ToInt32(Console.ReadLine());
             }
+            process.printProcessDetails(num_processes, processes_burst, processes_arrival, processes_priority);
+        }
+        public static void printProcessDetails(int num_processes, int[] processes_burst, int[] processes_arrival, int[] processes_priority)
+        {
+            Console.Write("-------------------------------------------------------\n");
+            for (int i = 0;i<num_processes;i++)
+            {
+                Console.Write("Process Number: {0}\tArrival Time: {1}\tBurst Time: {2}\t Priority: {3}\n", i, processes_arrival[i], processes_burst[i], processes_priority[i]);
+            }
+            Console.Write("-------------------------------------------------------\n");
         }
     }
 }

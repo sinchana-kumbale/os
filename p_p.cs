@@ -200,8 +200,22 @@ namespace OS
                 Console.Write(start[i]);
                 Console.Write("--");
                 Console.Write(end[i]);
+                Console.Write("  Status : ");
+                if (proc[i] == -1)
+                {
+                    Console.Write("CPU Idle");
+                }
+                else
+                {
+                    Console.Write("Executing {0} ", proc[i]);
+                }
+                Console.Write("\n");
+            }
+            Console.Write("-------------------------------------------------------\n");
+            for (int i = 0; i < num_process; i++)
+            {
                 Console.Write("  Process : ");
-                Console.Write(proc[i]);
+                Console.Write(i);
                 Console.Write("  Waiting Time : ");
                 Console.Write(waitingTime[i]);
                 Console.Write("  Turnaround Time : ");

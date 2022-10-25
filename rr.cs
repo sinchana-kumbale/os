@@ -67,6 +67,7 @@ namespace OS
             int cnt = 0, idx = 0;
             while (p.Count != 0)
             {
+                
                 List<process> ready = new List<process>(num_process);
                 if (p.First().arrival > cnt)
                 {
@@ -88,6 +89,7 @@ namespace OS
                 }
                 while (ready.Count != 0)
                 {
+                    int flag = 0;
                     process readyProcess = ready[0];
                     ready.RemoveAt(0);
                     if (quantum < readyProcess.burst_time)
@@ -97,7 +99,7 @@ namespace OS
                         proc[idx] = readyProcess.index;
                         cnt += quantum;
                         readyProcess.burst_time -= quantum;
-                        ready.Add(readyProcess);
+                        flag = 1;
                         idx++;
                     }
                     else
@@ -118,7 +120,10 @@ namespace OS
                         else j++;
 
                     }
-
+                    if (flag == 1)
+                    {
+                        ready.Add(readyProcess);
+                    }
                 }
             }
             for (int j = 0; j < num_process; j++)
@@ -172,8 +177,22 @@ namespace OS
                 Console.Write(start[i]);
                 Console.Write("--");
                 Console.Write(end[i]);
+                Console.Write("  Status : ");
+                if (proc[i] == -1)
+                {
+                    Console.Write("CPU Idle");
+                }
+                else
+                {
+                    Console.Write("Executing {0} ", proc[i]);
+                }
+                Console.Write("\n");
+            }
+            Console.Write("-------------------------------------------------------\n");
+            for (int i = 0; i < num_process; i++)
+            {
                 Console.Write("  Process : ");
-                Console.Write(proc[i]);
+                Console.Write(i);
                 Console.Write("  Waiting Time : ");
                 Console.Write(waitingTime[i]);
                 Console.Write("  Turnaround Time : ");
