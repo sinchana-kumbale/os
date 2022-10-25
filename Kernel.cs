@@ -112,6 +112,27 @@ namespace OS
                 sjfp_t.Display();
                 sjfp_t.clearData();
             }
+            if (input == "about")
+            {
+                Console.WriteLine("SAS OS v1.0");
+            }
+
+            if (input == "shutdown") 
+            {
+                Cosmos.System.Power.Shutdown();
+            }
+
+            if (input == "restart") 
+            {
+                Cosmos.System.Power.Reboot();
+            }
+            if (input == "echo")
+            {
+                Console.WriteLine("\nEnter the string: ");
+                var echo_inp = Console.ReadLine();
+                Console.WriteLine("Echo Output: {0}", echo_inp);
+
+            }
         }
     }
 }
